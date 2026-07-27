@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
+      .bg { fill: #FAF6EE; }
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; fill: #2C2A29; font-weight: 600; }
+      .subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; letter-spacing: 0.15em; font-weight: 600; text-transform: uppercase; }
+      .card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; fill: #2C2A29; font-weight: 600; }
+      .card-subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+      .card-text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #4A4642; font-weight: 400; }
+      .card-text-bold { font-family: 'Inter', sans-serif; font-size: 13px; fill: #2C2A29; font-weight: 600; }
+      .card-tag { font-family: 'Inter', sans-serif; font-size: 9px; fill: #8C857B; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .arrow-line { stroke: #9E978C; stroke-width: 1.0; fill: none; }
+      .arrow-head { fill: #9E978C; }
+      .connection-dash { stroke: #BFB7AA; stroke-width: 1.0; stroke-dasharray: 4 4; fill: none; }
+      .border-fine { stroke: #9E978C; stroke-width: 0.8; }
+      .fill-terracotta { fill: #F7EFEA; stroke: #C85A3C; stroke-width: 1.0; }
+      .fill-ocre { fill: #FAF3E6; stroke: #D2963F; stroke-width: 1.0; }
+      .fill-sand { fill: #F4EFE6; stroke: #9E978C; stroke-width: 1.0; }
+      .fill-cream { fill: #FAF8F5; stroke: #E4E0D5; stroke-width: 1.0; }
+      .fill-white { fill: #FFFFFF; stroke: #E4E0D5; stroke-width: 1.0; }
+      .code-font { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: #C85A3C; font-weight: bold; }
+      .arrow-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: #8C857B; font-weight: 500; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#9E978C" />
+    </marker>
+  </defs>
+  <rect width="900" height="550" class="bg" />
+  
+  <!-- Header -->
+  <text x="60" y="65" class="title">08. Anatomie d'un Plugin</text>
+  <text x="60" y="90" class="subtitle">VUE ÉDITORIALE D'UN PAQUET D'EXTENSION UNIQUE ET INTÉGRÉ</text>
+  <line x1="60" y1="105" x2="840" y2="105" stroke="#E4E0D5" stroke-width="1" />
+  <rect x="60" y="150" width="520" height="330" rx="6" class="fill-sand" />
+  <text x="80" y="172" class="card-tag">DOSSIER RACINE</text>
+  <text x="80" y="190" class="card-title">mon-plugin /</text>
+  <line x1="80" y1="202" x2="560" y2="202" stroke="#E4E0D5" stroke-width="0.8" />
+  <rect x="80" y="210" width="140" height="100" rx="6" class="fill-terracotta" />
+  <text x="100" y="232" class="card-title">plugin.json</text>
+  <line x1="100" y1="244" x2="200" y2="244" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="100" y="266" class="card-text">Configuration,</text>
+  <text x="100" y="284" class="card-text">métadonnées &</text>
+  <text x="100" y="302" class="card-text">dépendances.</text>
+  <rect x="250" y="210" width="140" height="100" rx="6" class="fill-ocre" />
+  <text x="270" y="232" class="card-title">skills /</text>
+  <line x1="270" y1="244" x2="370" y2="244" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="270" y="266" class="card-text">Dossiers de</text>
+  <text x="270" y="284" class="card-text">connaissance,</text>
+  <text x="270" y="302" class="card-text">modèles, guides.</text>
+  <rect x="420" y="210" width="140" height="100" rx="6" class="fill-ocre" />
+  <text x="440" y="232" class="card-title">agents /</text>
+  <line x1="440" y1="244" x2="540" y2="244" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="440" y="266" class="card-text">Définitions de</text>
+  <text x="440" y="284" class="card-text">sous-agents</text>
+  <text x="440" y="302" class="card-text">spécialisés.</text>
+  <rect x="80" y="340" width="140" height="100" rx="6" class="fill-cream" />
+  <text x="100" y="362" class="card-title">hooks /</text>
+  <line x1="100" y1="374" x2="200" y2="374" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="100" y="396" class="card-text">Scripts shell</text>
+  <text x="100" y="414" class="card-text">et validations</text>
+  <text x="100" y="432" class="card-text">d'événements.</text>
+  <rect x="250" y="340" width="140" height="100" rx="6" class="fill-cream" />
+  <text x="270" y="362" class="card-title">mcp /</text>
+  <line x1="270" y1="374" x2="370" y2="374" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="270" y="396" class="card-text">Serveurs MCP</text>
+  <text x="270" y="414" class="card-text">liés au plugin.</text>
+  <rect x="420" y="340" width="140" height="100" rx="6" class="fill-cream" />
+  <text x="440" y="362" class="card-title">commands /</text>
+  <line x1="440" y1="374" x2="540" y2="374" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="440" y="396" class="card-text">Raccourcis et</text>
+  <text x="440" y="414" class="card-text">commandes slash.</text>
+  <rect x="610" y="150" width="230" height="330" rx="6" class="fill-white" />
+  <text x="630" y="172" class="card-tag">DISTRIBUTION</text>
+  <text x="630" y="190" class="card-title">Installation unique</text>
+  <line x1="630" y1="202" x2="820" y2="202" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="630" y="224" class="card-text">Le plugin rassemble</text>
+  <text x="630" y="242" class="card-text">toutes les fonctionnalités</text>
+  <text x="630" y="260" class="card-text">dans un seul dossier.</text>
+  <text x="630" y="278" class="card-text"></text>
+  <text x="630" y="296" class="card-text">Déploiement simple :</text>
+  <text x="630" y="332" class="code-font">claude install ./mon-plugin</text>
+  <text x="630" y="350" class="card-text"></text>
+  <text x="630" y="368" class="card-text">Idéal pour standardiser les</text>
+  <text x="630" y="386" class="card-text">outils au sein d'une équipe.</text>
+  <line x1="580" y1="315" x2="610" y2="315" class="arrow-line" marker-end="url(#arrow)" />
+
+</svg>

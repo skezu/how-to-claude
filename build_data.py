@@ -1,13 +1,29 @@
 #!/usr/bin/env python3
-"""Génère site/data.js à partir des README des 11 modules."""
+"""Génère les leçons du cours claude-code-11-etapes dans site/data.js à partir
+des README des 11 modules.
+
+Ce script ne touche QU'à l'entrée `courses[]` dont l'id est
+`claude-code-11-etapes` : il préserve tel quel le reste de data.js (config,
+autres cours comme `claude-code-101`), en s'appuyant sur le même mécanisme de
+préfixe/suffixe que le skill « academy-content » (scripts/academy.py).
+"""
 import json
 import re
+import shutil
 from pathlib import Path
 
 import markdown
 
-ROOT = Path("/sessions/elegant-trusting-darwin/mnt/How To Claude")
-OUT = ROOT / "site" / "data.js"
+# Le script vit dans <racine-projet>/site/build_data.py
+SITE_DIR = Path(__file__).resolve().parent
+ROOT = SITE_DIR.parent
+OUT = SITE_DIR / "data.js"
+RESOURCES_DIR = SITE_DIR / "resources"
+
+DATA_JS_RE = re.compile(
+    r"^(?P<prefix>.*?window\.ACADEMY_DATA\s*=\s*)(?P<body>.*)(?P<suffix>;\s*)$",
+    re.DOTALL,
+)
 
 MODULES = [
     ("00-decouvrir-claude", "Découvrir Claude : Chat, Cowork ou Code ?"),
@@ -38,23 +54,44 @@ def extract_meta(text):
     return m.group(1).strip() if m else None
 
 
-def rewrite_links(html):
-    """Liens relatifs ../NN-xxx/README.md -> liens internes de leçon."""
-    def repl(m):
+def rewrite_links(html, module_dir):
+    """Réécrit les liens relatifs d'une leçon :
+    - ../NN-xxx/README.md -> lien interne vers une autre leçon du cours ;
+    - fichier annexe du module (ex. agents/relecteur-code.md) -> lien
+      cliquable vers site/resources/<module_dir>/<chemin>, s'il a bien été
+      copié à cet endroit (sinon neutralisé en <code> avec un avertissement,
+      pour ne jamais publier un lien mort silencieusement).
+    """
+    def repl_lesson(m):
         target = m.group(2)
         return f'href="lesson.html?course=claude-code-11-etapes&lesson={target}"'
 
-    html = re.sub(r'href="\.\./((\d\d-[a-z-]+))/README\.md[^"]*"', repl, html)
-    # Liens vers fichiers annexes du module -> désactivés proprement
-    html = re.sub(r'<a href="(?!https?://|#|lesson\.html)[^"]*">([^<]*)</a>',
-                  r'<code>\1</code>', html)
+    html = re.sub(r'href="\.\./((\d\d-[a-z-]+))/README\.md[^"]*"', repl_lesson, html)
+
+    def repl_resource(m):
+        href, text = m.group(1), m.group(2)
+        dest = RESOURCES_DIR / module_dir / href
+        if dest.exists():
+            return f'<a href="resources/{module_dir}/{href}">{text}</a>'
+        print(f"! lien annexe introuvable, neutralisé : {module_dir} -> {href}")
+        return f'<code>{text}</code>'
+
+    html = re.sub(
+        r'<a href="(?!https?://|#|lesson\.html)([^"]*)">(.*?)</a>',
+        repl_resource,
+        html,
+        flags=re.DOTALL,
+    )
     return html
 
 
-def convert(md_text):
+def convert(md_text, module_dir):
     md = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
     html = md.convert(md_text)
-    return rewrite_links(html)
+    # Illustrations : ../illustrations/NN_xxx.svg -> illustrations/NN_xxx.svg
+    # (site/illustrations/ est à la racine servie, pas besoin de remonter)
+    html = re.sub(r'(src="|src=\')\.\./illustrations/', r'\1illustrations/', html)
+    return rewrite_links(html, module_dir)
 
 
 lessons_flat = {}
@@ -69,7 +106,7 @@ for sec_title, idxs in SECTIONS:
         # retire le H1 (réaffiché par le layout leçon)
         body = re.sub(r"^#\s+.*\n", "", text, count=1)
         duration = extract_meta(text)
-        html = convert(body)
+        html = convert(body, d)
         lesson = {
             "id": d,
             "title": title,
@@ -91,33 +128,37 @@ course = {
     "sections": sections_js,
 }
 
-data = {
-    "config": {
-        "siteName": "Y Academy",
-        "academyLabel": "Y Academy",
-        "academyUrl": "index.html",
-        "coursesLabel": "Cours",
-        "homeTitle": "Y Academy — Cours",
-        "heroTitle": "Nos cours",
-        "breadcrumbRoot": "Y Academy",
-        "breadcrumbCourses": "Cours",
-        "startLabel": "Commencer",
-        "resumeLabel": "Reprendre",
-        "registeredLabel": "Inscrit",
-        "registerLabel": "S'inscrire | GRATUIT",
-        "curriculumLabel": "Curriculum",
-        "overviewLabel": "Aperçu du cours",
-        "courseOverviewLabel": "Course Overview",
-        "progressLabel": "{done} leçon(s) sur {total} terminée(s) ({pct}%)",
-        "nextLabel": "Suivant",
-        "prevLabel": "Précédent",
-        "completeLabel": "Marquer comme terminé",
-        "completedLabel": "Terminé ✓",
-    },
-    "courses": [course],
-}
+# --- Fusion dans data.js existant --------------------------------------
+# On ne régénère QUE le cours claude-code-11-etapes ; tout le reste de
+# data.js (config, autres cours comme claude-code-101) est préservé tel
+# quel, à l'identique du mécanisme prefix/suffix de scripts/academy.py.
+if not OUT.exists():
+    raise SystemExit(f"{OUT} introuvable — ce script ne fait que mettre à jour "
+                      "un data.js existant, il ne le crée pas de zéro.")
 
-js = "// Données de la plateforme — généré par build_data.py, éditable à la main ou via le skill « academy-content »\n"
-js += "window.ACADEMY_DATA = " + json.dumps(data, ensure_ascii=False, indent=1) + ";\n"
-OUT.write_text(js, encoding="utf-8")
-print(f"OK {OUT} ({OUT.stat().st_size/1024:.0f} KB), {len(lesson_ids)} leçons")
+existing_text = OUT.read_text(encoding="utf-8")
+m = DATA_JS_RE.match(existing_text)
+if not m:
+    raise SystemExit(f"{OUT} : structure inattendue — motif "
+                      "« window.ACADEMY_DATA = { ... }; » introuvable.")
+prefix, suffix = m.group("prefix"), m.group("suffix")
+data = json.loads(m.group("body"))
+
+courses = data.setdefault("courses", [])
+replaced = False
+for idx, c in enumerate(courses):
+    if c.get("id") == "claude-code-11-etapes":
+        courses[idx] = course
+        replaced = True
+        break
+if not replaced:
+    courses.append(course)
+
+backup = OUT.with_suffix(OUT.suffix + ".bak")
+shutil.copyfile(OUT, backup)
+
+body = json.dumps(data, ensure_ascii=False, indent=1)
+OUT.write_text(prefix + body + suffix, encoding="utf-8")
+print(f"OK {OUT} ({OUT.stat().st_size/1024:.0f} KB), {len(lesson_ids)} leçons "
+      f"régénérées pour claude-code-11-etapes (sauvegarde : {backup})")
+print(f"Cours présents dans data.js : {[c.get('id') for c in courses]}")

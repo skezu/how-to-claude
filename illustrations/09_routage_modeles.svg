@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
+      .bg { fill: #FAF6EE; }
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; fill: #2C2A29; font-weight: 600; }
+      .subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; letter-spacing: 0.15em; font-weight: 600; text-transform: uppercase; }
+      .card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; fill: #2C2A29; font-weight: 600; }
+      .card-subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+      .card-text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #4A4642; font-weight: 400; }
+      .card-text-bold { font-family: 'Inter', sans-serif; font-size: 13px; fill: #2C2A29; font-weight: 600; }
+      .card-tag { font-family: 'Inter', sans-serif; font-size: 9px; fill: #8C857B; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .arrow-line { stroke: #9E978C; stroke-width: 1.0; fill: none; }
+      .arrow-head { fill: #9E978C; }
+      .connection-dash { stroke: #BFB7AA; stroke-width: 1.0; stroke-dasharray: 4 4; fill: none; }
+      .border-fine { stroke: #9E978C; stroke-width: 0.8; }
+      .fill-terracotta { fill: #F7EFEA; stroke: #C85A3C; stroke-width: 1.0; }
+      .fill-ocre { fill: #FAF3E6; stroke: #D2963F; stroke-width: 1.0; }
+      .fill-sand { fill: #F4EFE6; stroke: #9E978C; stroke-width: 1.0; }
+      .fill-cream { fill: #FAF8F5; stroke: #E4E0D5; stroke-width: 1.0; }
+      .fill-white { fill: #FFFFFF; stroke: #E4E0D5; stroke-width: 1.0; }
+      .code-font { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: #C85A3C; font-weight: bold; }
+      .arrow-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: #8C857B; font-weight: 500; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#9E978C" />
+    </marker>
+  </defs>
+  <rect width="900" height="550" class="bg" />
+  
+  <!-- Header -->
+  <text x="60" y="65" class="title">09. Routage de Modèles</text>
+  <text x="60" y="90" class="subtitle">OPTIMISATION COÛT, VITESSE ET PUISSANCE DE CALCUL</text>
+  <line x1="60" y1="105" x2="840" y2="105" stroke="#E4E0D5" stroke-width="1" />
+  <rect x="70" y="220" width="200" height="130" rx="6" class="fill-sand" />
+  <text x="90" y="242" class="card-tag">ENTRÉE</text>
+  <text x="90" y="260" class="card-title">Tâche utilisateur</text>
+  <line x1="90" y1="272" x2="250" y2="272" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="90" y="294" class="card-text">Le développeur sollicite</text>
+  <text x="90" y="312" class="card-text">l'IA pour une action de</text>
+  <text x="90" y="330" class="card-text">code ou d'analyse.</text>
+  <rect x="325" y="175" width="230" height="220" rx="6" class="fill-ocre" />
+  <text x="345" y="197" class="card-tag">ROUTEUR</text>
+  <text x="345" y="215" class="card-title">Analyse de Complexité</text>
+  <line x1="345" y1="227" x2="535" y2="227" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="345" y="249" class="card-text">Évaluation de la tâche :</text>
+  <text x="345" y="267" class="card-text">• Nombre de fichiers impactés</text>
+  <text x="345" y="285" class="card-text">• Degré d'abstraction requis</text>
+  <text x="345" y="303" class="card-text">• Présence d'algorithmes</text>
+  <rect x="610" y="130" width="220" height="95" rx="6" class="fill-cream" />
+  <text x="630" y="152" class="card-title">Haiku 4.5</text>
+  <line x1="630" y1="164" x2="810" y2="164" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="630" y="186" class="card-text">Tâches simples / Rapides</text>
+  <text x="630" y="204" class="card-text">• Git commits, relectures</text>
+  <text x="630" y="222" class="card-text">• Éditions de code courtes</text>
+  <rect x="610" y="245" width="220" height="95" rx="6" class="fill-ocre" />
+  <text x="630" y="267" class="card-title">Sonnet 5</text>
+  <line x1="630" y1="279" x2="810" y2="279" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="630" y="301" class="card-text">Tâches courantes / Riches</text>
+  <text x="630" y="319" class="card-text">• Éditions de code, refactoring</text>
+  <text x="630" y="337" class="card-text">• Écriture de tests, doc</text>
+  <rect x="610" y="360" width="220" height="95" rx="6" class="fill-terracotta" />
+  <text x="630" y="382" class="card-title">Opus 4.8</text>
+  <line x1="630" y1="394" x2="810" y2="394" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="630" y="416" class="card-text">Tâches complexes / Riches</text>
+  <text x="630" y="434" class="card-text">• Refactoring d'architecture</text>
+  <text x="630" y="452" class="card-text">• Logique pure, bug-hunting</text>
+  <line x1="270" y1="285" x2="325" y2="285" class="arrow-line" marker-end="url(#arrow)" />
+  <line x1="555" y1="220" x2="610" y2="177.5" class="arrow-line" marker-end="url(#arrow)" />
+  <text x="580" y="190" class="arrow-text" text-anchor="middle">Simple</text>
+  <line x1="555" y1="292.5" x2="610" y2="292.5" class="arrow-line" marker-end="url(#arrow)" />
+  <text x="580" y="282" class="arrow-text" text-anchor="middle">Moyenne</text>
+  <line x1="555" y1="365" x2="610" y2="407.5" class="arrow-line" marker-end="url(#arrow)" />
+  <text x="580" y="390" class="arrow-text" text-anchor="middle">Élevée</text>
+
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
+      .bg { fill: #FAF6EE; }
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; fill: #2C2A29; font-weight: 600; }
+      .subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; letter-spacing: 0.15em; font-weight: 600; text-transform: uppercase; }
+      .card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; fill: #2C2A29; font-weight: 600; }
+      .card-subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+      .card-text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #4A4642; font-weight: 400; }
+      .card-text-bold { font-family: 'Inter', sans-serif; font-size: 13px; fill: #2C2A29; font-weight: 600; }
+      .card-tag { font-family: 'Inter', sans-serif; font-size: 9px; fill: #8C857B; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .arrow-line { stroke: #9E978C; stroke-width: 1.0; fill: none; }
+      .arrow-head { fill: #9E978C; }
+      .connection-dash { stroke: #BFB7AA; stroke-width: 1.0; stroke-dasharray: 4 4; fill: none; }
+      .border-fine { stroke: #9E978C; stroke-width: 0.8; }
+      .fill-terracotta { fill: #F7EFEA; stroke: #C85A3C; stroke-width: 1.0; }
+      .fill-ocre { fill: #FAF3E6; stroke: #D2963F; stroke-width: 1.0; }
+      .fill-sand { fill: #F4EFE6; stroke: #9E978C; stroke-width: 1.0; }
+      .fill-cream { fill: #FAF8F5; stroke: #E4E0D5; stroke-width: 1.0; }
+      .fill-white { fill: #FFFFFF; stroke: #E4E0D5; stroke-width: 1.0; }
+      .code-font { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: #C85A3C; font-weight: bold; }
+      .arrow-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: #8C857B; font-weight: 500; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#9E978C" />
+    </marker>
+  </defs>
+  <rect width="900" height="550" class="bg" />
+  
+  <!-- Header -->
+  <text x="60" y="65" class="title">10. Gouvernance et Sécurité</text>
+  <text x="60" y="90" class="subtitle">HIÉRARCHIE ET CONTRÔLE DES ACCÈS EN ENTREPRISE</text>
+  <line x1="60" y1="105" x2="840" y2="105" stroke="#E4E0D5" stroke-width="1" />
+  <rect x="60" y="140" width="360" height="85" rx="6" class="fill-cream" />
+  <text x="80" y="162" class="card-title">1. Config Globale Système</text>
+  <line x1="80" y1="174" x2="400" y2="174" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="80" y="196" class="card-text">Permissions et sécurité imposées par l'IT (ex: proxies).</text>
+  <rect x="60" y="240" width="360" height="85" rx="6" class="fill-sand" />
+  <text x="80" y="262" class="card-title">2. Config Dépôt (Repository)</text>
+  <line x1="80" y1="274" x2="400" y2="274" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="80" y="296" class="card-text">Settings partagés dans le projet (.claude/settings.json).</text>
+  <rect x="60" y="340" width="360" height="85" rx="6" class="fill-ocre" />
+  <text x="80" y="362" class="card-title">3. Préférences Utilisateur</text>
+  <line x1="80" y1="374" x2="400" y2="374" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="80" y="396" class="card-text">Paramètres individuels définis localement par le dev.</text>
+  <rect x="480" y="140" width="360" height="285" rx="6" class="fill-terracotta" />
+  <text x="500" y="162" class="card-tag">FILTRE DE SÉCURITÉ</text>
+  <text x="500" y="180" class="card-title">Barrières & Protection</text>
+  <line x1="500" y1="192" x2="820" y2="192" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="500" y="214" class="card-text">Système de supervision des droits :</text>
+  <text x="500" y="232" class="card-text"></text>
+  <text x="500" y="250" class="card-text">• Sandbox d'exécution : validation manuelle</text>
+  <text x="500" y="268" class="card-text">• Sécurité réseau : restriction des serveurs MCP</text>
+  <text x="500" y="286" class="card-text">• Masquage des variables d'environnement</text>
+  <text x="500" y="304" class="card-text">• Mode non-interactif sécurisé pour la CI/CD</text>
+  <text x="500" y="322" class="card-text">• Blocage de l'exécution automatique de scripts</text>
+  <line x1="420" y1="282" x2="480" y2="282" class="arrow-line" marker-end="url(#arrow)" />
+
+</svg>

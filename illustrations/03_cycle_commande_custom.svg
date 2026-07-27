@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
+      .bg { fill: #FAF6EE; }
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; fill: #2C2A29; font-weight: 600; }
+      .subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; letter-spacing: 0.15em; font-weight: 600; text-transform: uppercase; }
+      .card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; fill: #2C2A29; font-weight: 600; }
+      .card-subtitle { font-family: 'Inter', sans-serif; font-size: 11px; fill: #8C857B; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+      .card-text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #4A4642; font-weight: 400; }
+      .card-text-bold { font-family: 'Inter', sans-serif; font-size: 13px; fill: #2C2A29; font-weight: 600; }
+      .card-tag { font-family: 'Inter', sans-serif; font-size: 9px; fill: #8C857B; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .arrow-line { stroke: #9E978C; stroke-width: 1.0; fill: none; }
+      .arrow-head { fill: #9E978C; }
+      .connection-dash { stroke: #BFB7AA; stroke-width: 1.0; stroke-dasharray: 4 4; fill: none; }
+      .border-fine { stroke: #9E978C; stroke-width: 0.8; }
+      .fill-terracotta { fill: #F7EFEA; stroke: #C85A3C; stroke-width: 1.0; }
+      .fill-ocre { fill: #FAF3E6; stroke: #D2963F; stroke-width: 1.0; }
+      .fill-sand { fill: #F4EFE6; stroke: #9E978C; stroke-width: 1.0; }
+      .fill-cream { fill: #FAF8F5; stroke: #E4E0D5; stroke-width: 1.0; }
+      .fill-white { fill: #FFFFFF; stroke: #E4E0D5; stroke-width: 1.0; }
+      .code-font { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: #C85A3C; font-weight: bold; }
+      .arrow-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: #8C857B; font-weight: 500; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#9E978C" />
+    </marker>
+  </defs>
+  <rect width="900" height="550" class="bg" />
+  
+  <!-- Header -->
+  <text x="60" y="65" class="title">03. Cycle d'une Commande Custom</text>
+  <text x="60" y="90" class="subtitle">ANATOMIE ET FLUX D'EXÉCUTION D'UN RACCOURCI SLASH PERSONNALISÉ</text>
+  <line x1="60" y1="105" x2="840" y2="105" stroke="#E4E0D5" stroke-width="1" />
+  <rect x="60" y="180" width="165" height="230" rx="6" class="fill-sand" />
+  <text x="80" y="202" class="card-tag">ÉTAPE 1</text>
+  <text x="80" y="220" class="card-title">Saisie</text>
+  <line x1="80" y1="232" x2="205" y2="232" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="80" y="254" class="card-text">L'utilisateur tape</text>
+  <text x="80" y="272" class="card-text">une commande :</text>
+  <text x="80" y="308" class="code-font">/refactor index.js</text>
+  <text x="80" y="344" class="card-text">Claude l'intercepte.</text>
+  <rect x="260" y="180" width="165" height="230" rx="6" class="fill-ocre" />
+  <text x="280" y="202" class="card-tag">ÉTAPE 2</text>
+  <text x="280" y="220" class="card-title">Configuration</text>
+  <line x1="280" y1="232" x2="405" y2="232" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="280" y="254" class="card-text">Lecture du Frontmatter</text>
+  <text x="280" y="272" class="card-text">du fichier Markdown :</text>
+  <text x="280" y="290" class="card-text">• Modèle choisi</text>
+  <text x="280" y="308" class="card-text">• Mode (ex: plan)</text>
+  <text x="280" y="326" class="card-text">• Arguments requis</text>
+  <rect x="460" y="180" width="165" height="230" rx="6" class="fill-terracotta" />
+  <text x="480" y="202" class="card-tag">ÉTAPE 3</text>
+  <text x="480" y="220" class="card-title">Bash Dynamique</text>
+  <line x1="480" y1="232" x2="605" y2="232" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="480" y="254" class="card-text">Résout les commandes</text>
+  <text x="480" y="272" class="card-text">définies avec « ! » :</text>
+  <text x="480" y="308" class="code-font">!git diff main</text>
+  <text x="480" y="344" class="card-text">Injecte le résultat.</text>
+  <rect x="660" y="180" width="165" height="230" rx="6" class="fill-cream" />
+  <text x="680" y="202" class="card-tag">ÉTAPE 4</text>
+  <text x="680" y="220" class="card-title">Soumission</text>
+  <line x1="680" y1="232" x2="805" y2="232" stroke="#E4E0D5" stroke-width="0.8" />
+  <text x="680" y="254" class="card-text">Prompt final enrichi</text>
+  <text x="680" y="272" class="card-text">avec les variables</text>
+  <text x="680" y="290" class="card-text">et le contexte,</text>
+  <text x="680" y="308" class="card-text">envoyé à l'IA.</text>
+  <line x1="225" y1="295" x2="260" y2="295" class="arrow-line" marker-end="url(#arrow)" />
+  <line x1="425" y1="295" x2="460" y2="295" class="arrow-line" marker-end="url(#arrow)" />
+  <line x1="625" y1="295" x2="660" y2="295" class="arrow-line" marker-end="url(#arrow)" />
+
+</svg>

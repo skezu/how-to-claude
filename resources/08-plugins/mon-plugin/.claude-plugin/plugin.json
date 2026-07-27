@@ -1,0 +1,9 @@
+{
+  "name": "mon-plugin",
+  "version": "0.1.0",
+  "description": "Squelette de plugin minimal — copie ce dossier et adapte-le",
+  "author": {
+    "name": "Ton Nom"
+  },
+  "license": "MIT"
+}
