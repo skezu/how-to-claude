@@ -53,7 +53,7 @@
   <text x="640" y="202" class="card-tag">SERVEURS MCP</text>
   <text x="640" y="220" class="card-title">Sources Externes</text>
   <line x1="640" y1="232" x2="810" y2="232" stroke="#E4E0D5" stroke-width="0.8" />
-  <text x="640" y="254" class="card-text">• API GitHub & GitLab</text>
+  <text x="640" y="254" class="card-text">• API GitHub &amp; GitLab</text>
   <text x="640" y="272" class="card-text">• Bases de données locales</text>
   <text x="640" y="290" class="card-text">• Systèmes de tickets (Jira)</text>
   <text x="640" y="308" class="card-text">• Moteurs de recherche web</text>

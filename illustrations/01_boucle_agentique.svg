@@ -54,7 +54,7 @@
   <text x="140" y="252" class="card-tag">ÉTAPE 4</text>
   <text x="140" y="270" class="card-title">Valider</text>
   <line x1="140" y1="282" x2="300" y2="282" stroke="#E4E0D5" stroke-width="0.8" />
-  <text x="140" y="304" class="card-text">Exécute tests & linter,</text>
+  <text x="140" y="304" class="card-text">Exécute tests &amp; linter,</text>
   <text x="140" y="322" class="card-text">corrige si nécessaire.</text>
 
   <circle cx="450" cy="285" r="45" class="fill-cream" stroke="#E4E0D5" stroke-width="1"/>

@@ -30,7 +30,7 @@
   
   <!-- Header -->
   <text x="60" y="65" class="title">00. Les Trois Visages de Claude</text>
-  <text x="60" y="90" class="subtitle">CHAT, COWORK & CODE — TROIS FAÇONS DE TRAVAILLER AVEC L'IA</text>
+  <text x="60" y="90" class="subtitle">CHAT, COWORK &amp; CODE — TROIS FAÇONS DE TRAVAILLER AVEC L'IA</text>
   <line x1="60" y1="105" x2="840" y2="105" stroke="#E4E0D5" stroke-width="1" />
   <rect x="60" y="160" width="230" height="310" rx="6" class="fill-cream" />
   <text x="80" y="182" class="card-tag">CONVERSATIONNEL / WEB</text>

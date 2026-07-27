@@ -46,7 +46,7 @@
   <text x="80" y="396" class="card-text">Paramètres individuels définis localement par le dev.</text>
   <rect x="480" y="140" width="360" height="285" rx="6" class="fill-terracotta" />
   <text x="500" y="162" class="card-tag">FILTRE DE SÉCURITÉ</text>
-  <text x="500" y="180" class="card-title">Barrières & Protection</text>
+  <text x="500" y="180" class="card-title">Barrières &amp; Protection</text>
   <line x1="500" y1="192" x2="820" y2="192" stroke="#E4E0D5" stroke-width="0.8" />
   <text x="500" y="214" class="card-text">Système de supervision des droits :</text>
   <text x="500" y="232" class="card-text"></text>
